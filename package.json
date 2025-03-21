@@ -26,7 +26,11 @@
     "test:ember": "ember test"
   },
   "devDependencies": {
-    "@babel/core": "^7.23.2",
+    "@babel/core": "^7.26.0",
+    "@babel/eslint-parser": "^7.25.9",
+    "@babel/plugin-proposal-decorators": "^7.25.9",
+    "@babel/preset-env": "^7.26.7",
+    "@babel/preset-typescript": "^7.26.0",
     "@ember/optional-features": "^2.0.0",
     "@ember/string": "^3.1.1",
     "@ember/test-helpers": "^3.2.0",
@@ -39,11 +43,6 @@
     "@glint/template": "^1.2.1",
     "@tsconfig/ember": "^3.0.2",
     "@types/ember": "^4.0.8",
-    "@types/ember-data": "^4.4.13",
-    "@types/ember-data__adapter": "^4.0.4",
-    "@types/ember-data__model": "^4.0.3",
-    "@types/ember-data__serializer": "^4.0.4",
-    "@types/ember-data__store": "^4.0.5",
     "@types/ember__application": "^4.0.9",
     "@types/ember__array": "^4.0.7",
     "@types/ember__component": "^4.0.19",
@@ -64,6 +63,11 @@
     "@types/ember__template": "^4.0.4",
     "@types/ember__test": "^4.0.4",
     "@types/ember__utils": "^4.0.5",
+    "@types/ember-data": "^4.4.13",
+    "@types/ember-data__adapter": "^4.0.4",
+    "@types/ember-data__model": "^4.0.3",
+    "@types/ember-data__serializer": "^4.0.4",
+    "@types/ember-data__store": "^4.0.5",
     "@types/qunit": "^2.19.7",
     "@types/rsvp": "^4.0.6",
     "@typescript-eslint/eslint-plugin": "^6.9.1",
@@ -78,6 +82,7 @@
     "ember-cli-dependency-checker": "^3.3.2",
     "ember-cli-htmlbars": "^6.3.0",
     "ember-cli-inject-live-reload": "^2.1.0",
+    "ember-concurrency": "^4.0.3",
     "ember-data": "~5.3.0",
     "ember-fetch": "^8.1.2",
     "ember-load-initializers": "^2.1.2",
@@ -109,5 +114,11 @@
   },
   "ember": {
     "edition": "octane"
+  },
+  "dependencies": {
+    "@tailwindcss/postcss": "^4.0.15",
+    "postcss": "^8.5.3",
+    "postcss-loader": "^8.1.1",
+    "tailwindcss": "^4.0.15"
   }
 }
