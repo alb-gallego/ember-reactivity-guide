@@ -1,2 +1,179 @@
-{{page-title "EmberModifiers"}}
-{{outlet}}
+{{! template-lint-disable no-nested-interactive }}
+{{page-title "Ember Modifiers"}}
+
+<div class="flex items-center justify-center flex-col gap-9">
+  <h1 class="text-2xl mb-6">EMBER MODIFIERS</h1>
+  <details class="flex flex-col items-center justify-center gap-6">
+    <summary>
+      Function Based Modifiers
+    </summary>
+    <div class="flex items-center justify-center flex-col gap-4">
+      <button
+        class="border rounded-md border-blue-500 w-full bg-gray-500"
+        type="button"
+        {{on "click" this.updateComponent}}
+      >
+        UPDATE
+      </button>
+      <button
+        class="border rounded-md border-blue-500 w-full bg-gray-500"
+        type="button"
+        {{on "click" this.destroyComponent}}
+      >
+        DESTROY
+      </button>
+      <button
+        class="border rounded-md border-blue-500 w-full bg-gray-500"
+        type="button"
+        {{on "click" this.insertComponent}}
+      >
+        INSERT
+      </button>
+
+      <div class="border border-fuchsia-500 rounder-md h-18 w-28">
+        {{#if this.showFunctionBasedComponent}}
+          <div
+            class="bg-red-500 text-white text-center"
+            {{!-- {{this.functionBasedModifier this.functionBasedAccum}} --}}
+            {{this.functionBasedModifier this.functionBasedAccum}}
+            {{!-- {{common-function-base this.functionBasedAccum}} --}}
+            {{this.onDestroyComponent}}
+          >
+            MAIN COMPONENT
+            {{this.functionBasedAccum}}
+          </div>
+        {{/if}}
+      </div>
+      <div class="text-center flex flex-col">
+        COMPONENT STATE:
+        <span class="font-bold">isInserted:
+        </span>
+        <p>{{this.isInserted}}</p>
+        <span class="font-bold">isUpdated:
+        </span>
+        <p>{{this.isUpdated}}</p>
+        <span class="font-bold">isDestroyed:
+        </span>
+        <p>{{this.isDestroyed}}</p>
+      </div>
+    </div>
+  </details>
+
+  <details class="flex items-center justify-center flex-col gap-4">
+    <summary>
+      Class Based Modifiers
+    </summary>
+    <div class="flex items-center justify-center flex-col gap-4">
+      <button
+        class="border rounded-md border-blue-500 w-full bg-gray-500"
+        type="button"
+        {{on "click" (fn this.updateComponent true)}}
+      >
+        UPDATE
+      </button>
+      <button
+        class="border rounded-md border-blue-500 w-full bg-gray-500"
+        type="button"
+        {{on "click" (fn this.destroyComponent true)}}
+      >
+        DESTROY
+      </button>
+      <button
+        class="border rounded-md border-blue-500 w-full bg-gray-500"
+        type="button"
+        {{on "click" (fn this.insertComponent true)}}
+      >
+        INSERT
+      </button>
+
+      <div class="border border-fuchsia-500 rounder-md h-18 w-28">
+        {{#if this.showClassBasedComponent}}
+          <div
+            class="bg-red-500 text-white text-center"
+            {{common-class-base this.classBasedAccum}}
+          >
+            MAIN COMPONENT CLASS BASE
+            {{this.classBasedAccum}}
+          </div>
+        {{/if}}
+      </div>
+      <div class="text-center flex flex-col">
+        COMPONENT STATE:
+        <span class="font-bold">isInserted:
+        </span>
+        <p>{{this.isInserted}}</p>
+        <span class="font-bold">isUpdated:
+        </span>
+        <p>{{this.isUpdated}}</p>
+        <span class="font-bold">isDestroyed:
+        </span>
+        <p>{{this.isDestroyed}}</p>
+      </div>
+    </div>
+  </details>
+
+  <details class="flex items-center justify-center flex-col gap-4">
+    <summary>
+      Modifier Arguments
+    </summary>
+
+    <div class="flex items-center justify-center flex-col gap-4">
+      <div class="items-start">
+
+        <span>
+          Positional
+          <div class="flex gap-2">
+            <p class="text-green-700">
+              this.modifier
+            </p>
+            <p class="text-blue-700">
+              positionalArg1
+            </p>
+            <p class="text-blue-700">
+              positionalArg2
+            </p>
+          </div>
+        </span>
+
+        <span>
+          Name
+          <div class="flex gap-2">
+            <p class="text-green-700">
+              this.modifier
+            </p>
+            <p class="text-blue-700">
+              namedArg1 = value1
+            </p>
+            <p class="text-blue-700">
+              namedArg2 = value2
+            </p>
+          </div>
+        </span>
+      </div>
+
+      <p>Can be combined but always in the next order -> positional named</p>
+
+      <button
+        class="border rounded-md border-blue-500 w-full bg-gray-500"
+        type="button"
+        {{on "click" this.updateComponent}}
+      >
+        UPDATE ARGS
+      </button>
+      <div class="border border-fuchsia-500 rounder-md h-18 w-28">
+        <div
+          class="bg-red-500 text-white text-center"
+          {{this.modifierWithArgs
+            this.functionBasedAccum
+            this.updateComponent
+            namedArg1=this.functionBasedAccum
+            nameArg2="something"
+          }}
+        >
+          COMPONENT WITH MODIFIERS WITH ARGS
+        </div>
+      </div>
+    </div>
+  </details>
+
+</div>
