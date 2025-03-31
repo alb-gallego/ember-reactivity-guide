@@ -1,0 +1,74 @@
+<div class="flex items-center justify-center flex-col gap-4">
+  <div>
+    Class Based Modifiers
+  </div>
+  <div class="flex items-center justify-center flex-col gap-4">
+    <button
+      class="border rounded-md border-blue-500 w-full bg-gray-500"
+      type="button"
+      {{on "click" (fn this.updateComponent true)}}
+    >
+      UPDATE
+    </button>
+    <button
+      class="border rounded-md border-blue-500 w-full bg-gray-500"
+      type="button"
+      {{on "click" this.destroyComponent}}
+    >
+      DESTROY
+    </button>
+    <button
+      class="border rounded-md border-blue-500 w-full bg-gray-500"
+      type="button"
+      {{on "click" this.insertComponent}}
+    >
+      INSERT
+    </button>
+
+    <div class="border border-fuchsia-500 rounder-md h-18 w-28">
+      {{#if this.showClassBasedComponent}}
+        <div
+          class="bg-red-500 text-white text-center"
+          {{common-class-base this.classBasedAccum countVar="first"}}
+        >
+          MAIN COMPONENT CLASS BASE
+          {{this.classBasedAccum}}
+        </div>
+      {{/if}}
+    </div>
+    <div class="text-center flex flex-col">
+      COMPONENT STATE:
+      <span class="font-bold">isInserted:
+      </span>
+      <p>{{this.isInserted}}</p>
+      <span class="font-bold">isUpdated:
+      </span>
+      <p>{{this.isUpdated}}</p>
+      <span class="font-bold">isDestroyed:
+      </span>
+      <p>{{this.isDestroyed}}</p>
+    </div>
+  </div>
+  <div class="flex items-center justify-center flex-col gap-4">
+    <button
+      class="border rounded-md border-blue-500 w-full bg-gray-500"
+      type="button"
+      {{on "click" (fn this.updateComponent true)}}
+    >
+      UPDATE 1
+    </button>
+
+    <div class="border border-fuchsia-500 rounder-md h-18 w-28">
+      {{#if this.showClassBasedComponent}}
+        <div
+          class="bg-red-500 text-white text-center"
+          {{common-class-base this.secondClassBasedAccum countVar="second"}}
+        >
+          MAIN COMPONENT CLASS BASE
+          {{this.secondClassBasedAccum}}
+        </div>
+      {{/if}}
+    </div>
+
+  </div>
+</div>

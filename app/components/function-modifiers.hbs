@@ -1,0 +1,54 @@
+<div class="flex flex-col items-center justify-center gap-6">
+  <div>
+    Function Based Modifiers
+  </div>
+  <div class="flex items-center justify-center flex-col gap-4">
+    <button
+      class="border rounded-md border-blue-500 w-full bg-gray-500"
+      type="button"
+      {{on "click" this.updateComponent}}
+    >
+      UPDATE
+    </button>
+    <button
+      class="border rounded-md border-blue-500 w-full bg-gray-500"
+      type="button"
+      {{on "click" this.destroyComponent}}
+    >
+      DESTROY
+    </button>
+    <button
+      class="border rounded-md border-blue-500 w-full bg-gray-500"
+      type="button"
+      {{on "click" this.insertComponent}}
+    >
+      INSERT
+    </button>
+
+    <div class="border border-fuchsia-500 rounder-md h-18 w-28">
+      {{#if this.showFunctionBasedComponent}}
+        <div
+          class="bg-red-500 text-white text-center"
+          {{this.functionBasedModifier this.functionBasedAccum}}
+          {{!-- {{common-function-base this.functionBasedAccum}} --}}
+          {{this.onDestroyComponent}}
+        >
+          MAIN COMPONENT
+          {{this.functionBasedAccum}}
+        </div>
+      {{/if}}
+    </div>
+    <div class="text-center flex flex-col">
+      COMPONENT STATE:
+      <span class="font-bold">isInserted:
+      </span>
+      <p>{{this.isInserted}}</p>
+      <span class="font-bold">isUpdated:
+      </span>
+      <p>{{this.isUpdated}}</p>
+      <span class="font-bold">isDestroyed:
+      </span>
+      <p>{{this.isDestroyed}}</p>
+    </div>
+  </div>
+</div>
