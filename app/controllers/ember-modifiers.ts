@@ -3,6 +3,13 @@ import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
 export default class EmberModifiersController extends Controller {
+  readonly sectionInitialState = {
+    'class-based': false,
+    'function-based': false,
+    'render-modifiers': false,
+    'bad-practices': false,
+  };
+
   @tracked
   isInserted = false;
   @tracked
@@ -11,12 +18,7 @@ export default class EmberModifiersController extends Controller {
   isDestroyed = false;
 
   @tracked
-  showSection = {
-    'class-based': false,
-    'function-based': false,
-    'render-modifiers': false,
-    'bad-practices': false,
-  };
+  showSection = this.sectionInitialState;
 
   // modifierWithArgs = modifier(
   //   (
@@ -35,6 +37,7 @@ export default class EmberModifiersController extends Controller {
 
   @action
   toggleSection(section: keyof typeof this.showSection) {
+    this.showSection = { ...this.sectionInitialState };
     this.showSection[section] = !this.showSection[section];
     this.showSection = { ...this.showSection };
   }

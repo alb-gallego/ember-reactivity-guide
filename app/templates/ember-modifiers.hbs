@@ -40,7 +40,7 @@
       {{/if}}
 
       {{#if (get this.showSection "render-modifiers")}}
-        <AsyncModifiers @modifiedArg={{this.functionBasedAccum}} />
+        <ReplaceRenderModifiers />
       {{/if}}
 
       {{#if (get this.showSection "bad-practices")}}

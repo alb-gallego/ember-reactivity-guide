@@ -25,7 +25,9 @@ export default class ClassModifiersComponent extends Component<ClassModifiersCom
 
       this.isInserted = true;
       this.isDestroyed = false;
-      console.log('onInsert');
+      if (!updatedVar) {
+        console.log('onInsert');
+      }
 
       if (updatedVar > 0 || this.functionBasedAccum > 0) {
         this.isUpdated = true;

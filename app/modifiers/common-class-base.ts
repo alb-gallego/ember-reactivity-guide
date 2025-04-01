@@ -21,6 +21,7 @@ function cleanup(instance: CommonClassBaseModifier) {
   console.log('instance.property1', instance.property1);
   console.log('Class Modifier onDestroy');
   instance.count = 0;
+  instance.count1 = 0;
 }
 
 export default class CommonClassBaseModifier extends Modifier<CommonClassBaseModifierSignature> {
